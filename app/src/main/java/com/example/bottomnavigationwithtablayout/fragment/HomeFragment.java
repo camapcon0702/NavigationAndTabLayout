@@ -2,13 +2,21 @@ package com.example.bottomnavigationwithtablayout.fragment;
 
 import android.os.Bundle;
 
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
+import com.example.bottomnavigationwithtablayout.Product;
 import com.example.bottomnavigationwithtablayout.R;
+import com.example.bottomnavigationwithtablayout.adapter.ProductAdapter;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -17,6 +25,9 @@ import com.example.bottomnavigationwithtablayout.R;
  */
 public class HomeFragment extends Fragment {
 
+    View view;
+    ListView lvProduct;
+    ArrayList<Product> arrayList;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -61,6 +72,31 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        view = inflater.inflate(R.layout.fragment_home, container, false);
+        ViewCompat.setOnApplyWindowInsetsListener(view.findViewById(R.id.home), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+        addControls();
+        return view;
+    }
+
+    private void addControls() {
+        lvProduct = view.findViewById(R.id.lv_product);
+        arrayList = new ArrayList<>();
+        arrayList.add(new Product("Laptop", "Core i5 10210U"));
+        arrayList.add(new Product("Laptop", "Core i5 10210U"));
+        arrayList.add(new Product("Laptop", "Core i5 10210U"));
+        arrayList.add(new Product("Laptop", "Core i5 10210U"));
+        arrayList.add(new Product("Laptop", "Core i5 10210U"));
+        arrayList.add(new Product("Laptop", "Core i5 10210U"));
+        arrayList.add(new Product("Laptop", "Core i5 10210U"));
+        arrayList.add(new Product("Laptop", "Core i5 10210U"));
+        arrayList.add(new Product("Laptop", "Core i5 10210U"));
+        arrayList.add(new Product("Laptop", "Core i5 10210U"));
+
+        ProductAdapter productAdapter = new ProductAdapter(getContext(), R.layout.fragment_home, arrayList);
+        lvProduct.setAdapter(productAdapter);
     }
 }

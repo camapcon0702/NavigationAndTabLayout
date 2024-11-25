@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Account fragment"
+        android:text="Lê Văn Quý\n22115053122333"
         android:textColor="@color/black"
         android:gravity="center"
         android:textSize="24sp"/>

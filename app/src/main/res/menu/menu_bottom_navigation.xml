@@ -4,6 +4,6 @@
     <item android:id="@+id/menu_home" android:title="Home" android:icon="@drawable/ic_home"/>
     <item android:id="@+id/menu_video" android:title="Video" android:icon="@drawable/ic_video"/>
     <item android:id="@+id/menu_notification" android:title="Notification" android:icon="@drawable/ic_notification"/>
-    <item android:id="@+id/menu_account" android:title="Account" android:icon="@drawable/ic_account"/>
+    <item android:id="@+id/menu_account" android:title="Profile" android:icon="@drawable/ic_account"/>
 
 </menu>
